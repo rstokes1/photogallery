@@ -76,7 +76,7 @@ nav a {
     padding: 4px;
 }
 
-/* about header */
+/* about */
 #about {
     margin: 10px;
 }
@@ -86,16 +86,40 @@ nav a {
 
 /* gallery */
 #gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding-left: 10px;
     padding-right: 10px;
+}
+#gallery h2 {
+    padding-top: 10px;
+    text-align: center; 
+}
+#gallery p {
+    margin-bottom: 20px; 
+    text-align: left; 
+}
+.intro {
+    width: 100%;
+    text-align: left;
+}
+.intro h2, .intro p {
+    display: block;
+    margin-bottom: 10px;
 }
 figure {
     position: relative;
     display: inline-block;
+    margin: 5px;
 }
 figure img {
-    width: 100%;
     height: auto;
+    position: relative;
+    flex: 1 0 100%;
+    margin: 5px;
+    box-sizing: border-box;
+    width: 100%;
 }
 figcaption {
     position: absolute;
@@ -104,12 +128,28 @@ figcaption {
     text-align: center;
     color: #000000;
 }
-figure:nth-child(1) figcaption, figure:nth-child(3) figcaption, figure:nth-child(6) figcaption, figure:nth-child(7) figcaption {
+.figure-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.figure-container figure {
+    flex: 1 0 100%;
+}
+.figure-container figure:nth-child(1) figcaption, 
+.figure-container figure:nth-child(3) figcaption, 
+.figure-container figure:nth-child(6) figcaption, 
+.figure-container figure:nth-child(7) figcaption {
     position: absolute;
     bottom: 20px;
     top: auto;
 }
-figure:nth-child(1) figcaption, figure:nth-child(2) figcaption, figure:nth-child(3) figcaption, figure:nth-child(7) figcaption, figure:nth-child(12) figcaption {
+
+.figure-container figure:nth-child(1) figcaption, 
+.figure-container figure:nth-child(2) figcaption, 
+.figure-container figure:nth-child(3) figcaption, 
+.figure-container figure:nth-child(7) figcaption, 
+.figure-container figure:nth-child(12) figcaption {
     color: #ffffff;
 }
 
@@ -156,34 +196,19 @@ footer {
 }
 
 /* media */
-#gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-figure {
-    position: relative;
-    flex: 1 0 100%;
-    margin: 5px;
-    box-sizing: border-box;
-}
-figure img {
-    width: 100%;
-    height: auto;
-}
 @media screen and (max-width: 485px) {
-    #gallery figure {
-        width: 100%;
+    .figure-container figure {
+        flex: 1 0 100%;
     }
 }
 @media (min-width: 486px) {
-    figure {
+    .figure-container figure {
         flex: 1 0 calc(50% - 10px);
     }
 }
 @media (min-width: 880px) {
-    figure {
-        flex: 1 0 calc(33.33% - 10px);
+    .figure-container figure {
+        flex: 1 0 calc(33.33% - 20px);
     }
     nav ul {
         text-align: right;
